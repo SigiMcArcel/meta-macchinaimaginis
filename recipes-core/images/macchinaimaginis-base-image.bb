@@ -2,13 +2,19 @@
 DESCRIPTION = "core-image-full-cmdline."
 
 
+
 IMAGE_FEATURES += "splash ssh-server-openssh"
-CORE_IMAGE_EXTRA_INSTALL += "openssh-sftp openssh-sftp-server"
+CORE_IMAGE_EXTRA_INSTALL += "openssh-sftp openssh-sftp-server rsync zip"
+
 
 IMAGE_INSTALL = "\
     packagegroup-core-boot \
     packagegroup-core-full-cmdline \
+    rsync \
+    libsndfile1 \
+    packagegroup-macchinaimaginis-dev \
     packagegroup-macchinaimaginis-sound \
+    packagegroup-macchinaimaginis-io \
     ${CORE_IMAGE_EXTRA_INSTALL} \
     "
 

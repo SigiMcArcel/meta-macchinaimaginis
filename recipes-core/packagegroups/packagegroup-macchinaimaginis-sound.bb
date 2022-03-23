@@ -8,13 +8,9 @@ PACKAGES = "\
 "
 
 RDEPENDS:packagegroup-macchinaimaginis-sound = "\
-	kernel-modules \
-	rpio \
-    	rpi-gpio \
     	alsa-utils \	
     	alsa-lib \
     	alsa-tools \
-    	usbutils \
 "
 
 
