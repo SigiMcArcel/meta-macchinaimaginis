@@ -27,6 +27,8 @@ Patches
 Please submit any patches against the meta-macchinaimaginis layer to the xxxx mailing list (xxxx@zzzz.org)
 and cc: the maintainer:
 
+hallo
+
 Maintainer: XXX YYYYYY <xxx.yyyyyy@zzzzz.com>
 
 Table of Contents
