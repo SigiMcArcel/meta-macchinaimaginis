@@ -13,6 +13,7 @@ RDEPENDS:packagegroup-macchinaimaginis-io = "\
     	rpi-gpio \
     	usbutils \
     	i2c-tools \
+    	rapidjson-dev \
 "
 
 
