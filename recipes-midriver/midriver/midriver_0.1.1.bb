@@ -22,11 +22,10 @@ EXTRA_OEMAKE = "'CC=${CC}' 'RANLIB=${RANLIB}' 'AR=${AR}' \
    
 do_install(){
 	install -d ${D}${libdir}
-	install -m 0644 libmisoundlib.so ${D}${libdir}
+	install -m 0644 libmidriver.so ${D}${libdir}
 	install -d ${D}${includedir}
-	install -m 0644 cWave.h ${D}${includedir}
-	install -m 0644 cAlsa.h ${D}${includedir}
-	install -m 0644 cAudio.h ${D}${includedir}
+	install -m 0644 DriverBase.h ${D}${includedir}
+	install -m 0644 GPIODriver.h ${D}${includedir}
 }
 
 
