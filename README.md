@@ -1,10 +1,12 @@
 # meta-macchinaimaginis
-This README file contains information on the contents of the meta-macchinaimaginis layer.
+rasperry pi image for machina imaginis art machines.
+Includes library and executables for controlling lamps,switches and playing sounds.
+
+
+
+see https://www.machinaimaginis.com/
 
 Please see the corresponding sections below for details.
-
-
-
 
 Dependencies
 ============
@@ -24,15 +26,10 @@ meta-yocto-bsp       = "honister:ef97194d30385c1124d2f671024882358fb8609f"
 meta-raspberrypi     = "honister:378d4b6e7ba64b6a9a701457cc3780fa896ba5dc"
 meta-macchinaimaginis = "main:0562f82635adc4813c522b098cbd26e2a9aaa0da"
 
+Thanks to <https://github.com/agherzan/meta-raspberrypi> for his work.
+  
 Patches
 =======
-
-Please submit any patches against the meta-macchinaimaginis layer to the xxxx mailing list (xxxx@zzzz.org)
-and cc: the maintainer:
-
-hallo
-
-Maintainer: XXX YYYYYY <xxx.yyyyyy@zzzzz.com>
 
 Table of Contents
 =================
