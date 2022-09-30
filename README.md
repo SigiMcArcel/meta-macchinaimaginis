@@ -1,4 +1,4 @@
-﻿# meta-macchinaimaginis
+# meta-macchinaimaginis
 rasperry pi image for machina imaginis art machines.
 Includes library and executables for controlling lamps,switches and playing sounds.
 
@@ -45,5 +45,3 @@ Run 'bitbake-layers add-layer meta-macchinaimaginis'
 
 II. Misc
 ========
-
-a-macchina_img layer ---
