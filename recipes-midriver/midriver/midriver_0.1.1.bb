@@ -8,7 +8,7 @@ TARGET_CC_ARCH += "${LDFLAGS}"
 SOLIBS = ".so"
 FILES_SOLIBSDEV = ""
 
-S = "${WORKDIR}/git/midriver/midriver"
+S = "${WORKDIR}/git/midriver"
 
 SRCREV = "${AUTOREV}"
 

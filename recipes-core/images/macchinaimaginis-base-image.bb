@@ -12,6 +12,7 @@ IMAGE_INSTALL = "\
     packagegroup-core-full-cmdline \
     rsync \
     libsndfile1 \
+    nano \
     packagegroup-macchinaimaginis-dev \
     packagegroup-macchinaimaginis-sound \
     packagegroup-macchinaimaginis-io \

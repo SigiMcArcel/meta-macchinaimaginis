@@ -14,6 +14,7 @@ RDEPENDS:packagegroup-macchinaimaginis-io = "\
     	usbutils \
     	i2c-tools \
     	rapidjson-dev \
+    	midriver \
 "
 
 

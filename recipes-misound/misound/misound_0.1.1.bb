@@ -21,7 +21,7 @@ TARGET_CC_ARCH += "${LDFLAGS}"
 SOLIBS = ".so"
 FILES_SOLIBSDEV = ""
 
-S = "${WORKDIR}/git/misound/misound"
+S = "${WORKDIR}/git/misound"
 
 SRCREV = "${AUTOREV}"
 
@@ -35,7 +35,7 @@ EXTRA_OEMAKE = "'CC=${CC}' 'RANLIB=${RANLIB}' 'AR=${AR}' \
    
 do_install(){
 	install -d ${D}${libdir}
-	install -m 0644 libmisoundlib.so ${D}${libdir}
+	install -m 0644 libmisound.so ${D}${libdir}
 	install -d ${D}${includedir}
 	install -m 0644 cWave.h ${D}${includedir}
 	install -m 0644 cAlsa.h ${D}${includedir}
