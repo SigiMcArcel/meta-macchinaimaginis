@@ -36,7 +36,7 @@ do_install(){
 	install -d asoundrc /home/root/.asoundrc
 }
 
-
+FILES_${PN} += "asound.conf .asoundrc"
 
 
 
