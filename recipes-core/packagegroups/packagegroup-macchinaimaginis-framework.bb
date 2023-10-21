@@ -8,11 +8,11 @@ PACKAGES = " \
 "
 
 RDEPENDS:packagegroup-macchinaimaginis-framework = " \
-    midriver-dev \
-	miutils-dev \
-	mimodule-dev \
-	misound-dev \
-	micomponents-dev \
+    midriver \
+	miutils \
+	mimodule \
+	misound \
+	micomponents \
 "
 
 
