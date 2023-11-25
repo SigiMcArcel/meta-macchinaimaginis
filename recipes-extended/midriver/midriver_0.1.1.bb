@@ -3,6 +3,14 @@ SECTION = "library"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
+DEPENDS:append = "\
+	miutils \
+    "
+    	
+RDEPENDS_${PN}:append = "\
+	miutils-dev \
+"
+
 TARGET_CC_ARCH += "${LDFLAGS}"
 SOLIBS = ".so"
 FILES_SOLIBSDEV = ""
