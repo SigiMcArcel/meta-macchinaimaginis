@@ -7,7 +7,7 @@ inherit update-rc.d
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
-INITSCRIPT_NAME = "miwoodenmachine.sh"
+INITSCRIPT_NAME = "miquadratmachine.sh"
 INITSCRIPT_PARAMS = "defaults 90 10"
 
 INSANE_SKIP:${PN} += "ldflags"
@@ -30,12 +30,12 @@ RDEPENDS:${PN} = " \
 	midriver \
 "
 
-S = "${WORKDIR}/git/machines/Holzmaschine/Software"
+S = "${WORKDIR}/git/machines/Quadratmaschine/Software"
 
 SRCREV = "${AUTOREV}"
 SRC_URI:append = " \
 	git://git@github.com/SigiMcArcel/macchina-imaginis.git;protocol=ssh;branch=main \
-	file://miwoodenmachine.sh \
+	file://miquadratmachine.sh \
 	"
 CXX:remove = "-Wl,--as-needed"
 EXTRA_OEMAKE =+ "bindir=${bindir}"
@@ -45,7 +45,7 @@ do_install:append() {
 	install -d ${D}/home/root/
 	install -d ${D}/home/root/sounds
 	install -d ${D}/etc/init.d
-  	install -m 0755 ${WORKDIR}/miwoodenmachine.sh ${D}/etc/init.d/miwoodenmachine.sh
+  	install -m 0755 ${WORKDIR}/miquadratmachine.sh ${D}/etc/init.d/miquadratmachine.sh
   	oe_runmake install DESTDIR=${D}
 }
 
