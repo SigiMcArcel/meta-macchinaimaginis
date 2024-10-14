@@ -4,13 +4,15 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
 
-DEPENDS:append = "\
+DEPENDS += "\
 	libsndfile1 \
 	alsa-lib \
+	miutils \
     "
-RDEPENDS_${PN}:append = "\
-	libsndfile1-dev \
-	alsa-lib-dev \
+RDEPENDS:${PN} = "\
+	libsndfile1 \
+	alsa-lib \
+	miutils \
 "
 TARGET_CC_ARCH += "${LDFLAGS}"
 SOLIBS = ".so"

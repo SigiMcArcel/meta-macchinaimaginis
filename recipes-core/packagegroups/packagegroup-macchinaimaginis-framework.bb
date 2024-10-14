@@ -1,18 +1,20 @@
 DESCRIPTION = "macchinaimaginis framework Packagegroup"
+LICENSE = "MIT"
 
+PACKAGE_ARCH = "${MACHINE_ARCH}"
 inherit packagegroup
 
-
-PACKAGES = " \
-	packagegroup-macchinaimaginis-framework \
-"
-
-RDEPENDS:packagegroup-macchinaimaginis-framework = " \
+RDEPENDS_${PN} = " \
     midriver \
 	miutils \
 	mimodule \
 	misound \
 	micomponents \
+	midriver-dev \
+	miutils-dev \
+	mimodule-dev \
+	misound-dev \
+	micomponents-dev \
 "
 
 

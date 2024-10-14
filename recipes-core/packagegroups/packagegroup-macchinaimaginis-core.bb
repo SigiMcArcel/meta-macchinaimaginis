@@ -1,18 +1,16 @@
 DESCRIPTION = "macchinaimaginis Packagegroup"
+LICENSE = "MIT"
 
+PACKAGE_ARCH = "${MACHINE_ARCH}"
 inherit packagegroup
 
-
-PACKAGES = "\
-	packagegroup-macchinaimaginis-core \
-"
-
-RDEPENDS:packagegroup-macchinaimaginis-core = " \
+RDEPENDS_${PN} = " \
 	kernel-modules \
 	usbutils \
 	i2c-tools \
 	rapidjson-dev \
 	libsndfile1 \
+	libmodbus \
 "
 
 

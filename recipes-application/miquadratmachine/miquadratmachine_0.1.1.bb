@@ -3,31 +3,31 @@ SECTION = "application"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
-inherit update-rc.d
+inherit systemd
 
-FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
+FILES_EXTRAPATHS:prepend := "${THISDIR}/files:"
 
-INITSCRIPT_NAME = "miquadratmachine.sh"
-INITSCRIPT_PARAMS = "defaults 90 10"
+SYSTEMD_SERVICE:${PN} += "miquadratmachine.service"
+SYSTEMD_AUTO_ENABLE:${PN} = "enable"
 
 INSANE_SKIP:${PN} += "ldflags"
 
 DEPENDS:append = " \
 	micomponents \
-	mimodule \
+	mimodules \
 	miutils \
 	misound \
-	micomponents \
 	midriver \
+	mitasks \
     "
     	
 RDEPENDS:${PN} = " \
 	micomponents \
-	mimodule \
+	mimodules \
 	miutils \
 	misound \
-	micomponents \
 	midriver \
+	mitasks \
 "
 
 S = "${WORKDIR}/git/machines/Quadratmaschine/Software"
@@ -35,23 +35,35 @@ S = "${WORKDIR}/git/machines/Quadratmaschine/Software"
 SRCREV = "${AUTOREV}"
 SRC_URI:append = " \
 	git://git@github.com/SigiMcArcel/macchina-imaginis.git;protocol=ssh;branch=main \
-	file://miquadratmachine.sh \
+	file://miquadratmachine.service \
+	file://sounds/ \
+	file://alsa-base.conf \
 	"
+
 CXX:remove = "-Wl,--as-needed"
-EXTRA_OEMAKE =+ "bindir=${bindir}"
+EXTRA_OEMAKE += "bindir=${bindir}"
 
 do_install:append() {
-	install -d ${D}/home
-	install -d ${D}/home/root/
-	install -d ${D}/home/root/sounds
-	install -d ${D}/etc/init.d
-  	install -m 0755 ${WORKDIR}/miquadratmachine.sh ${D}/etc/init.d/miquadratmachine.sh
-  	oe_runmake install DESTDIR=${D}
+	# Erstelle das Zielverzeichnis für Sounds und installiere die Dateien
+	install -d ${D}/usr/share
+	install -d ${D}/usr/share/misounds/
+	for file in ${WORKDIR}/sounds/*; do
+        install -m 0644 "$file" ${D}/usr/share/misounds
+    done
+
+	install -d ${D}/etc/
+	install -d ${D}/etc/modprobe.d/
+	install -m 0664 ${WORKDIR}/alsa-base.conf ${D}/etc/modprobe.d/
+
+	install -d ${D}${systemd_system_unitdir}
+	install -m 0664 ${WORKDIR}/miquadratmachine.service ${D}${systemd_system_unitdir}/
+
+	# Führe die normale Installation durch
+	oe_runmake install DESTDIR=${D}
 }
 
-FILES:${PN} += " \
-	/etc/init.d/* \
-	/home \
-	/home/root/ \
-	/home/root/sounds \
-	"
+# Füge die Sounds zum Paket hinzu
+
+FILES:${PN} += "/usr/share"
+FILES:${PN} += "/usr/share/misounds/*"
+FILES:${PN} += "${systemd_system_unitdir}/miquadratmachine.service"

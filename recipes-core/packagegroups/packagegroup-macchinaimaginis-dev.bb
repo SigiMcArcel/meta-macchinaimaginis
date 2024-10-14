@@ -1,16 +1,13 @@
 DESCRIPTION = "macchinaimaginis Packagegroup"
+LICENSE = "MIT"
 
+PACKAGE_ARCH = "${MACHINE_ARCH}"
 inherit packagegroup
 
-
-PACKAGES = " \
-	packagegroup-macchinaimaginis-dev \
-"
-
-RDEPENDS:packagegroup-macchinaimaginis-dev = " \
+RDEPENDS_${PN} = " \
 	packagegroup-core-buildessential \
-    	packagegroup-sdk-target \
-    	gdbserver \
+    packagegroup-sdk-target \
+    gdbserver \
 "
 
 
