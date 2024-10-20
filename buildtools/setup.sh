@@ -9,16 +9,16 @@
 #          |- meta-raspberrypi
 
 # Exit immediately if a command exits with a non-zero status.
-set -e
 
 ROOT_FOLDER_PREFIX="../../../"
+BUILD_FOLDER="$ROOT_FOLDER_PREFIX/rpi64-build"
 
 # create build folder
-mkdir -p "$ROOT_FOLDER/rpi64-build"
+mkdir -p "$BUILD_FOLDER"
 # copy conf and bblayer
-cp bblayers.conf "$ROOT_FOLDER/rpi64-build"
-cp local.conf "$ROOT_FOLDER/rpi64-build"
+cp "$PWD/bblayers.conf" "$BUILD_FOLDER"
+cp "$PWD/local.conf" "$BUILD_FOLDER"
 
 # jump into poky and call oe-init-build.env
-cd "$ROOT_FOLDER/source/poky"
-source source oe-init-build-env ../../rpi64-build
+cd "$ROOT_FOLDER_PREFIX"source/poky
+source oe-init-build-env ../../rpi64-build
