@@ -1,0 +1,13 @@
+[Unit]
+Description=macchina imaginis twitter machine
+After=multi-user.target
+
+[Service]
+ExecStart=/usr/bin/mitwittermachine
+Restart=no
+User=root
+Group=root
+
+
+[Install]
+WantedBy=multi-user.target

@@ -4,17 +4,16 @@ LICENSE = "MIT"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 inherit packagegroup
 
-RDEPENDS_${PN} = " \
-    midriver \
+RDEPENDS:${PN} += " \
+    libsndfile1 \
+	libmodbus \
+	alsa-utils \
+	alsaconf \
+	midriver \
 	miutils \
-	mimodule \
+	mimodules \
 	misound \
 	micomponents \
-	midriver-dev \
-	miutils-dev \
-	mimodule-dev \
-	misound-dev \
-	micomponents-dev \
 "
 
 

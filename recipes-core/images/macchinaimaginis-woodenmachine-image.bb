@@ -1,29 +1,18 @@
 # Base this image on core-image-minimal
-DESCRIPTION = "core-image-full-cmdline."
+DESCRIPTION = "Image for macchina magisnis quadrat machine."
 
-# include macchinaimaginis-base-image.bb
+IMAGE_FEATURES += "ssh-server-openssh"
 
-
-IMAGE_FEATURES += "splash ssh-server-openssh"
-CORE_IMAGE_EXTRA_INSTALL += "openssh-sftp openssh-sftp-server rsync zip"
-
+WIFI_NAME = "miwoodenmachine"
+WIFI_PWD = "funkandzischel"
 
 IMAGE_INSTALL += "\
-    packagegroup-core-boot \
-    packagegroup-core-full-cmdline \
-    rsync \
-    libsndfile1 \
-    alsa-utils \
-    nano \
-    rapidjson \
-    packagegroup-macchinaimaginis-dev \
     packagegroup-macchinaimaginis-core \
+    packagegroup-macchinaimaginis-base \
+    packagegroup-macchinaimaginis-dev \
     packagegroup-macchinaimaginis-framework \
-    miwoodenmachine \
-    ${CORE_IMAGE_EXTRA_INSTALL} \
+    packagegroup-macchinaimaginis-connectivity \
+    miquadratmachine \
     "
-
 inherit core-image
-
-
-
+include macchinaimaginis-image.inc

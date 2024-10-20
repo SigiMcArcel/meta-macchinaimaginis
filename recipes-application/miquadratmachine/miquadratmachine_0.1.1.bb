@@ -1,4 +1,4 @@
-DESCRIPTION = "machina imaginis wooden machine application"
+DESCRIPTION = "machina imaginis twitter machine application"
 SECTION = "application"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
@@ -33,11 +33,11 @@ RDEPENDS:${PN} = " \
 S = "${WORKDIR}/git/machines/Quadratmaschine/Software"
 
 SRCREV = "${AUTOREV}"
+
 SRC_URI:append = " \
 	git://git@github.com/SigiMcArcel/macchina-imaginis.git;protocol=ssh;branch=main \
 	file://miquadratmachine.service \
 	file://sounds/ \
-	file://alsa-base.conf \
 	"
 
 CXX:remove = "-Wl,--as-needed"
@@ -51,15 +51,18 @@ do_install:append() {
         install -m 0644 "$file" ${D}/usr/share/misounds
     done
 
-	install -d ${D}/etc/
-	install -d ${D}/etc/modprobe.d/
-	install -m 0664 ${WORKDIR}/alsa-base.conf ${D}/etc/modprobe.d/
-
 	install -d ${D}${systemd_system_unitdir}
 	install -m 0664 ${WORKDIR}/miquadratmachine.service ${D}${systemd_system_unitdir}/
 
 	# Führe die normale Installation durch
 	oe_runmake install DESTDIR=${D}
+}
+
+pkg_postinst_ontarget:${PN}() {
+    if [ -n "$D" ]; then
+        exit 1
+    fi
+    systemctl enable miquadratmachine.service
 }
 
 # Füge die Sounds zum Paket hinzu

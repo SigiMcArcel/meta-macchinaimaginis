@@ -4,13 +4,10 @@ LICENSE = "MIT"
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 inherit packagegroup
 
-RDEPENDS_${PN} = " \
+RDEPENDS:${PN} += " \
+	packagegroup-core-boot \
+    packagegroup-core-full-cmdline \
 	kernel-modules \
-	usbutils \
-	i2c-tools \
-	rapidjson-dev \
-	libsndfile1 \
-	libmodbus \
 "
 
 

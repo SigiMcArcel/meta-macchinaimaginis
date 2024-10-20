@@ -1,1 +1,0 @@
-SUBSYSTEM=="sound", ATTRS{idVendor}=="0d8c", ATTRS{idProduct}=="0014", KERNEL=="card?", ATTR{index}="3"
