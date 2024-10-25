@@ -1,6 +1,5 @@
 # Base this image on core-image-minimal
-DESCRIPTION = "Image for macchina magisnis quadrat machine."
-
+DESCRIPTION = "Image for macchina magisnis twitter machine."
 
 IMAGE_FEATURES += "ssh-server-openssh"
 
@@ -9,7 +8,7 @@ IMAGE_INSTALL += "\
     packagegroup-macchinaimaginis-base \
     packagegroup-macchinaimaginis-dev \
     packagegroup-macchinaimaginis-framework \
-    miquadratmachine \
+    mitwittermachine \
     "
 inherit core-image
 
