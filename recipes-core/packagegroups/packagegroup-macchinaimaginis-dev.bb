@@ -12,6 +12,7 @@ RDEPENDS:${PN} += " \
     zip \
     usbutils \
 	i2c-tools \
+    gdb \
     midriver-dev \
 	miutils-dev \
 	mimodules-dev \

@@ -15,7 +15,6 @@ RDEPENDS:${PN} = " \
 	mimodules \
     "
 
-
 TARGET_CC_ARCH += "${LDFLAGS}"
 SOLIBS = ".so"
 FILES_SOLIBSDEV = ""

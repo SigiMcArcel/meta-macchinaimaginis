@@ -36,7 +36,7 @@ SRCREV = "${AUTOREV}"
 
 SRC_URI:append = " \
 	git://git@github.com/SigiMcArcel/macchina-imaginis.git;protocol=ssh;branch=main \
-	file://miquadratmachine.service \
+	file://mitwittermachine.service \
 	file://sounds/ \
 	"
 
@@ -52,7 +52,7 @@ do_install:append() {
     done
 
 	install -d ${D}${systemd_system_unitdir}
-	install -m 0664 ${WORKDIR}/miquadratmachine.service ${D}${systemd_system_unitdir}/
+	install -m 0664 ${WORKDIR}/mitwittermachine.service ${D}${systemd_system_unitdir}/
 
 	# Führe die normale Installation durch
 	oe_runmake install DESTDIR=${D}

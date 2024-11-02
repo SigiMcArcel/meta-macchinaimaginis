@@ -14,6 +14,13 @@ RDEPENDS:${PN} += " \
 	mimodules \
 	misound \
 	micomponents \
+	mitasks \
+	midriver-dev \
+	miutils-dev \
+	mimodules-dev \
+	misound-dev \
+	micomponents-dev \
+	mitasks-dev \
 "
 
 
