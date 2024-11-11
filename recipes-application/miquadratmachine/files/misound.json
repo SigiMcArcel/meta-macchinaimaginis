@@ -1,0 +1,14 @@
+{
+    "card1": {
+        "name":"plug:dmix0",
+        "min":15.0,
+        "max":100.0,
+        "mode":"linear"
+    },
+    "card2": {
+        "name":"plug:dmix1",
+        "min":0.0,
+        "max":100.0,
+        "mode":"linear"
+    }
+}

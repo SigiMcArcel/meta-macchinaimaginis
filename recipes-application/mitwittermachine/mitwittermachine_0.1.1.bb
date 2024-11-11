@@ -38,6 +38,7 @@ SRC_URI:append = " \
 	git://git@github.com/SigiMcArcel/macchina-imaginis.git;protocol=ssh;branch=main \
 	file://mitwittermachine.service \
 	file://sounds/ \
+	file://misound.json \
 	"
 
 CXX:remove = "-Wl,--as-needed"
@@ -46,9 +47,12 @@ EXTRA_OEMAKE += "bindir=${bindir}"
 do_install:append() {
 	# Erstelle das Zielverzeichnis für Sounds und installiere die Dateien
 	install -d ${D}/usr/share
-	install -d ${D}/usr/share/misounds/
+	install -d ${D}/usr/share/misound/
+	install -d ${D}/usr/share/misound/sounds/
+	install -d ${D}/usr/share/misound/conf.d
+	install -m 0664  ${WORKDIR}/misound.json  ${D}/usr/share/misound/conf.d
 	for file in ${WORKDIR}/sounds/*; do
-        install -m 0644 "$file" ${D}/usr/share/misounds
+        install -m 0644 "$file" ${D}/usr/share/misound/sounds/
     done
 
 	install -d ${D}${systemd_system_unitdir}
@@ -68,5 +72,6 @@ pkg_postinst_ontarget:${PN}() {
 # Füge die Sounds zum Paket hinzu
 
 FILES:${PN} += "/usr/share"
-FILES:${PN} += "/usr/share/misounds/*"
+FILES:${PN} += "/usr/share/misound/sounds/*"
+FILES:${PN} += "/usr/share/misound/conf.d/*"
 FILES:${PN} += "${systemd_system_unitdir}/mitwittermachine.service"

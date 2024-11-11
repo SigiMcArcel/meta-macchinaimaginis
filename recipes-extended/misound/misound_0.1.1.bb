@@ -8,11 +8,13 @@ DEPENDS += "\
 	libsndfile1 \
 	alsa-lib \
 	miutils \
+	jsoncpp \
     "
 RDEPENDS:${PN} = "\
 	libsndfile1 \
 	alsa-lib \
 	miutils \
+	jsoncpp \
 "
 TARGET_CC_ARCH += "${LDFLAGS}"
 SOLIBS = ".so"
