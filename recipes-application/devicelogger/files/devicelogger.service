@@ -1,0 +1,13 @@
+[Unit]
+Description=macchina imaginis quadrat machine
+After=multi-user.target
+
+[Service]
+ExecStart=/usr/bin/devicelogger
+Restart=no
+User=root
+Group=root
+
+
+[Install]
+WantedBy=multi-user.target
